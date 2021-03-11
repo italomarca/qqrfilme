@@ -1,4 +1,5 @@
 # qqrfilme
+This is the website you go to when you want to watch something and have no idea what.
 
 ## app local setup
 - Clone this repository
