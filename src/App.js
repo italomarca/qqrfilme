@@ -5,11 +5,6 @@ const API_KEY = '6af1acbb5b00250f0669d50b891c76c6'
 const MOVIEDB_API_BASE_URI = 'https://api.themoviedb.org/3'
 const POSTER_API_BASE_URI = 'https://image.tmdb.org/t/p/w500'
 
-const ROUTES = {
-  latest: '3/movie/latest',
-  movie: 'https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US'
-}
-
 const DATA = {
   movies: [
     {
@@ -105,7 +100,7 @@ const MovieDescription = ({movie, updateMovie}) => {
       </div>
       <div style={footerWrapper}>
         <div style={rateAndYear}>
-          <p>{`${movie.stars} ${movie.year}`}</p>
+          <p>{`${movie.stars} - ${movie.year}`}</p>
         </div>
         <div style={footerButton} onClick={() => window.open(`https://www.google.com/search?q=assistir ${movie.name}`)}><p>EH ISSO</p></div>
         <div style={footerButton} onClick={updateMovie}><p>NAH</p></div>
@@ -117,6 +112,7 @@ const MovieDescription = ({movie, updateMovie}) => {
 const movieDescriptionStyles = {
   wrapper: {
     display: 'flex',
+    justifyContent: 'space-between',
     margin: 20,
     marginTop: 40
   },
@@ -125,9 +121,10 @@ const movieDescriptionStyles = {
     maxWidth: '70%'
   },
   image: {
-    maxHeight: 300,
-    maxWidth: 200,
+    maxHeight: 500,
+    maxWidth: 300,
     marginTop: 100,
+    marginLeft: 30
   },
   title: {
     color: TEXT_COLOR,
@@ -143,19 +140,23 @@ const movieDescriptionStyles = {
     color: TEXT_COLOR,
     margin: 10,
     height: 40,
+    fontSize: 26
   },
   footerWrapper: {
     position: 'absolute',
     bottom: 0,
     display: 'flex',
+    flex: 1,
     justifyContent: 'space-between'
   },
   footerButton: {
     margin: 10,
     flex: 1,
-    color: TEXT_COLOR,
+    color: '#000',
+    backgroundColor: TEXT_COLOR,
+    fontWeight: 600,
+    fontSize: 18,
     textAlign: 'center',
-    border: `2px solid ${TEXT_COLOR}`,
     borderRadius: 50,
     width: 300,
     alignItems: 'center',
