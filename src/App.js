@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react';
 
 const API_KEY = '6af1acbb5b00250f0669d50b891c76c6'
-const MOVIEDB_API_URI = 'https://api.themoviedb.org/'
+const MOVIEDB_API_BASE_URI = 'https://api.themoviedb.org/3'
+const POSTER_API_BASE_URI = 'https://image.tmdb.org/t/p/w500'
 
 const ROUTES = {
   latest: '3/movie/latest',
@@ -36,14 +37,17 @@ const App = () => {
   }, [])
 
   const updateMovie = () => {
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
+    fetch(`${MOVIEDB_API_BASE_URI}/movie/popular?api_key=${API_KEY}&language=pt-BR&page=1`)
       .then(r => r.json())
       .then(r => {
         const movie = r.results[getRandomInt(1, r.results.length)]
+        console.log(movie)
         setMovie({
           name: movie.title,
           description: movie.overview,
           stars: movie.vote_average,
+          imageUri: movie.poster_path ? `${POSTER_API_BASE_URI}${movie.poster_path}` : null,
+          year: movie.release_date.substring(0,4)
         })
       })
   }
@@ -88,7 +92,7 @@ const MovieDescription = ({movie, updateMovie}) => {
     rateAndYear,
     footerButton
   } = movieDescriptionStyles;
-
+  
   return (
     <>
       <div style={wrapper}>
@@ -96,7 +100,7 @@ const MovieDescription = ({movie, updateMovie}) => {
           <div style={title}>{movie.name}</div>
           <div style={description}>{movie.description}</div>
         </div>
-        <img style={image} src={movie.imageUri} alt="movie" />
+        {movie.imageUri && <img style={image} src={movie.imageUri} alt="movie" />}
       </div>
       <div style={footerWrapper}>
         <div style={rateAndYear}>
@@ -133,16 +137,17 @@ const movieDescriptionStyles = {
     color: TEXT_COLOR,
     fontSize: 36
   },
-  footerWrapper: {
-    display: 'flex',
-    flex: 1,
-    justifyContent: 'space-between'
-  },
   rateAndYear: {
     flex: 1,
     color: TEXT_COLOR,
     margin: 10,
     height: 40,
+  },
+  footerWrapper: {
+    position: 'absolute',
+    bottom: 0,
+    display: 'flex',
+    justifyContent: 'space-between'
   },
   footerButton: {
     margin: 10,
@@ -151,14 +156,15 @@ const movieDescriptionStyles = {
     textAlign: 'center',
     border: `2px solid ${TEXT_COLOR}`,
     borderRadius: 50,
-    height: 40,
+    width: 300,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    cursor: 'pointer',
   }
 }
 
 const Header = () => {
-  const { wrapper, slot, p } = headerStyles;
+  const { wrapper, slot } = headerStyles;
   return (
     <div style={wrapper}>
       <div style={slot}><p>SOBRE</p></div>
