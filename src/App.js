@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import Dotdotdot from 'react-dotdotdot';
 
 const API_KEY = '6af1acbb5b00250f0669d50b891c76c6'
 const MOVIEDB_API_BASE_URI = 'https://api.themoviedb.org/3'
@@ -98,7 +99,7 @@ const MovieDescription = ({movie, updateMovie}) => {
       <div style={wrapper}>
         <div style={left}>
           <div style={title}>{movie.name}</div>
-          <div style={description}>{movie.description}</div>
+          <div style={description}><Dotdotdot clamp={3}>{movie.description}</Dotdotdot></div>
         </div>
         {movie.imageUri && <img style={image} src={movie.imageUri} alt="movie" />}
       </div>
