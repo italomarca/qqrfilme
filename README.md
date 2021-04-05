@@ -5,6 +5,7 @@ This is the website you go to when you want to watch something and have no idea 
 ## app local setup
 - Clone this repository
 - `npm install`
+- get the .env file from one of the contributors
 - `npm start`
 
 ## backend
