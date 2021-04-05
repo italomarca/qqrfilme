@@ -103,7 +103,7 @@ const MovieDescription = ({movie, updateMovie}) => {
           <p>{`${movie.stars} - ${movie.year}`}</p>
         </div>
         <div style={footerButton} onClick={() => window.open(`https://www.google.com/search?q=assistir ${movie.name}`)}><p>EH ISSO</p></div>
-        <div style={footerButton} onClick={updateMovie}><p>NAH</p></div>
+        <div style={footerButton} onClick={updateMovie}><p>MEH</p></div>
       </div>
     </>
   );
@@ -166,14 +166,16 @@ const movieDescriptionStyles = {
 }
 
 const Header = () => {
-  const { wrapper, slot } = headerStyles;
+  const { wrapper, leftSlot, leftSide, rightSide } = headerStyles;
   return (
     <div style={wrapper}>
-      <div style={slot}><p>SOBRE</p></div>
-      <div style={slot}><p>CONTATO</p></div>
-      <div style={slot}>
-        <div style={{flex:1, textAlign: 'end', marginRight: 5}}><p>🇧🇷</p></div>
-        <div style={{flex:1}}><p>🇺🇸</p></div>
+      <div style={leftSide}>
+        <div style={leftSlot}><p>SOBRE</p></div>
+        <div style={leftSlot}><p>CONTATO</p></div>
+      </div>
+      <div style={rightSide}>
+        <div><p>🇧🇷</p></div>
+        <div><p>🇺🇸</p></div>
       </div>
     </div>
   )
@@ -182,18 +184,37 @@ const Header = () => {
 const headerStyles = {
   wrapper: {
     display: 'flex',
+    flexDirection: 'row',
     flex: 1,
-    paddingTop: 20,
-    maxWidth: 500,
-    maxHeight: 50,
+    height: 80,
+    justifyContent: 'space-between',
+    alignItems: 'space-between',
+    flexGrow: 1
   },
-  slot: {
+  leftSide: {
     display: 'flex',
+    flexDirection: 'row',
     flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center', 
+  },
+  rightSide: {
+    display: 'flex',
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginRight: 50
+  },
+  leftSlot: {
+    display: 'flex',
     flexDirection: 'row',
     fontSize: 18,
     justifyContent: 'center',
-    color: TEXT_COLOR
+    alignItems: 'center',
+    color: TEXT_COLOR,
+    cursor: 'pointer',
+    margin: 50
   },
 }
 
