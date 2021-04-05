@@ -1,7 +1,7 @@
 // TODO: make this key an envvar for the love of god
-const API_KEY = '6af1acbb5b00250f0669d50b891c76c6'
-const MOVIEDB_API_BASE_URI = 'https://api.themoviedb.org/3'
-const POSTER_API_BASE_URI = 'https://image.tmdb.org/t/p/w500'
+const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
+const MOVIEDB_API_BASE_URI = 'https://api.themoviedb.org/3';
+const POSTER_API_BASE_URI = 'https://image.tmdb.org/t/p/w500';
 
 
 // maybe this should be in a commonService of kind instead of
@@ -18,6 +18,7 @@ const getRandomMovie = (movies) => {
 }
 
 const getMovie = async () => {
+  // TODO: handle rejection
   return fetch(`${MOVIEDB_API_BASE_URI}/movie/popular?api_key=${API_KEY}&language=pt-BR&page=1`)
     .then(r => r.json())
     .then(r => {
