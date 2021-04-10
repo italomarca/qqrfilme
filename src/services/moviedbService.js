@@ -1,5 +1,5 @@
 // TODO: make this key an envvar for the love of god
-const API_KEY = process.env.REACT_APP_MOVIEDB_API_KEY;
+const API_KEY = '6af1acbb5b00250f0669d50b891c76c6';
 const MOVIEDB_API_BASE_URI = 'https://api.themoviedb.org/3';
 const POSTER_API_BASE_URI = 'https://image.tmdb.org/t/p/w500';
 
