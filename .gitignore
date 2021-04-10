@@ -3,4 +3,5 @@ package-lock.json
 junk
 .env
 .vscode/
+build/
 .DS_Store
