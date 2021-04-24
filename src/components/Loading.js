@@ -1,3 +1,5 @@
+import React from 'react'
+
 const TEXT_COLOR = '#fff'
 
 const Loading = () => {

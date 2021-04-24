@@ -1,3 +1,4 @@
+import React from 'react'
 import Dotdotdot from 'react-dotdotdot';
 
 const TEXT_COLOR = '#fff'
