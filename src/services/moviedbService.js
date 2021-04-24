@@ -10,7 +10,7 @@ const POSTER_API_BASE_URI = 'https://image.tmdb.org/t/p/w500';
 const getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
+  return Math.floor(Math.random() * (max - min));
 }
 
 const getRandomMovie = (movies) => {
