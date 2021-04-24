@@ -4,7 +4,6 @@ import {act} from 'react-dom/test-utils'
 
 import moviedbService from '../../services/moviedbService'
 
-
 describe('moviedbService', () => {
 
   const mockSuccessResponse = {results: [{title: 'Godzilla vs. Kong', overview: 'Em uma época em que os monstros andam na Terra, a luta da humanidade por seu futuro coloca Godzilla e Kong em rota de colisão que verá as duas forças mais poderosas da natureza no planeta se confrontarem em uma batalha espetacular para as idades. Enquanto Monarch embarca em uma missão perigosa em terreno desconhecido e descobre pistas sobre as origens dos Titãs, uma conspiração humana ameaça tirar as criaturas, boas e más, da face da terra para sempre.', vote_average: 8.3, poster_path: '/klAIFewuqcyEmH1SMtR2XbMyqzM.jpg', release_date: '2021-03-24'}]};
