@@ -1,8 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-// import reportWebVitals from './reportWebVitals';
+import HomeWeb from './web/pages/home'
+import HomeMobile from './mobile/pages/home'
+
+import { useMediaQuery } from 'react-responsive'
+
+const App = () => {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 1224px)'
+  })
+
+  /** not used for now
+   * const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+   * const isTabletOrMobileDevice = useMediaQuery({
+   *   query: '(max-device-width: 1224px)'
+   * })
+   * const isBigScreen = useMediaQuery({ query: '(min-device-width: 1824px)' })
+   * const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+   * const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
+   */ 
+  
+  isDesktopOrLaptop ? console.log('web') : console.log('mobile')
+  return isDesktopOrLaptop 
+    ? <HomeWeb />
+    : <HomeMobile />
+}
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,8 +33,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();

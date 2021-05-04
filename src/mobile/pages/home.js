@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 
-import moviedbService from '../services/moviedbService'
+import moviedbService from '../../services/moviedbService'
 import Loading from '../components/Loading'
 import Header from '../components/Header'
 import MovieDescription from '../components/MovieDescription'
@@ -22,11 +22,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      {
-        movie
-        ? <MovieDescription movie={movie} updateMovie={updateMovie} />
-        : <Loading />
-      }
+      
     </>
   )
 }
