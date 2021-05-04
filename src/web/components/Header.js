@@ -30,11 +30,14 @@ const headerStyles = {
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
+    position: 'fixed',
+    left: 0,
+    top: 0,
     flex: 1,
     height: 80,
     justifyContent: 'space-between',
     alignItems: 'space-between',
-    flexGrow: 1
+    // flexGrow: 1
   },
   leftSide: {
     display: 'flex',
