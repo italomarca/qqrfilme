@@ -50,4 +50,10 @@ describe('moviedbService', () => {
     expect(moviedbService.getRandomInt(1, 10)).toBeGreaterThanOrEqual(0)
   });
 
+  it('getRandomInt returns valid index', async () => {
+    expect(moviedbService.getRandomInt(1, 1)).toEqual(0)
+    expect(moviedbService.getRandomInt(1, 10)).toBeLessThanOrEqual(9)
+    expect(moviedbService.getRandomInt(1, 10)).toBeGreaterThanOrEqual(0)
+  });
+
 });
