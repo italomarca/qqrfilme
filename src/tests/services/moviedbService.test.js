@@ -3,11 +3,7 @@ import {render} from '@testing-library/react'
 import {act} from 'react-dom/test-utils'
 
 import moviedbService from '../../services/moviedbService'
-import Home from '../../pages/home'
 
-// 2 - testar o retorno da funcao getMovie com apenas 1 objeto para o random n bugar
-// 3 - testar se o retorno é um dos retornos passados
-// 4 - teste de snapshot
 
 describe('moviedbService', () => {
 
@@ -43,8 +39,16 @@ describe('moviedbService', () => {
     })
   });
 
-  it('getRandomMovie returns ', async () => {
+  it('getRandomMovie returns one of the items passed', async () => {
+    const items = [1, 2, 3, 4, 5, 6, 7];
+    expect(items).toContain(moviedbService.getRandomMovie(items))
 
+  });
+
+  it('getRandomInt returns valid index', async () => {
+    expect(moviedbService.getRandomInt(1, 1)).toEqual(0)
+    expect(moviedbService.getRandomInt(1, 10)).toBeLessThanOrEqual(9)
+    expect(moviedbService.getRandomInt(1, 10)).toBeGreaterThanOrEqual(0)
   });
 
 });

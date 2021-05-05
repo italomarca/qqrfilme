@@ -40,5 +40,6 @@ export default {
   MOVIEDB_API_BASE_URI,
   POSTER_API_BASE_URI,
   getRandomInt,
+  getRandomMovie,
   getMovie
 }
