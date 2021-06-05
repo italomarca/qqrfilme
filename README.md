@@ -8,7 +8,7 @@ This is the website you go to when you want to watch something and have no idea 
 - `npm start`
 
 ## specs
-https://www.figma.com/file/1rN8Z2BtMBiA4zI5vKDwjV/qqrfil.me?node-id=0%3A1
+https://www.figma.com/file/1rN8Z2BtMBiA4zI5vKDwjV/qqrfil.me?node-id=0%3A1  
 (if you need editing privileges, send an email to italomarca@icloud.com)
 
 ## backend
