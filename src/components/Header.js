@@ -1,4 +1,7 @@
 import React from 'react'
+import {
+  Link
+} from 'react-router-dom'
 
 const TEXT_COLOR = '#fff'
 
@@ -7,7 +10,12 @@ const Header = () => {
   return (
     <div style={wrapper}>
       <div style={leftSide}>
-        <div style={leftSlot}><p>SOBRE</p></div>
+        <Link to="/">
+          <div style={leftSlot}><p>INÍCIO</p></div>
+        </Link>
+        <Link to="/sobre">
+          <div style={leftSlot}><p>SOBRE</p></div>
+        </Link>
         <div style={leftSlot}><p>CONTATO</p></div>
       </div>
       <div style={rightSide}>
