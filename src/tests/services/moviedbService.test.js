@@ -1,7 +1,3 @@
-import React from 'react'
-import {render} from '@testing-library/react'
-import {act} from 'react-dom/test-utils'
-
 import moviedbService from '../../services/moviedbService'
 
 describe('moviedbService', () => {
@@ -41,7 +37,7 @@ describe('moviedbService', () => {
       name: movieFetchResponse.results[0].title,
       description: movieFetchResponse.results[0].overview,
       stars: movieFetchResponse.results[0].vote_average,
-      imageUri: movieFetchResponse.results[0].poster_path,
+      imageUri: `${moviedbService.POSTER_API_BASE_URI}${movieFetchResponse.results[0].poster_path}`,
       year: movieFetchResponse.results[0].release_date.substring(0,4)
     })
   });
