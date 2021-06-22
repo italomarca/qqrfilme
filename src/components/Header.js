@@ -1,32 +1,36 @@
 import React from 'react'
 import {
-  Link
+  Link, 
+  useLocation,
 } from 'react-router-dom'
+import { isAtHome } from '../helpers';
 
 const TEXT_COLOR = '#fff'
 
 const Header = () => {
-  const { wrapper, leftSlot, leftSide, rightSide } = headerStyles;
+  const { wrapper, leftSlot, leftSide } = styles;
+  const location = useLocation();
+
   return (
     <div style={wrapper}>
       <div style={leftSide}>
-        <Link to="/">
-          <div style={leftSlot}><p>INÍCIO</p></div>
-        </Link>
-        <Link to="/sobre">
+        {!isAtHome(location)
+          ? (
+            <Link to="/" style={styles.noTextDecoration}>
+              <div style={leftSlot}><p>INÍCIO</p></div>
+            </Link>
+          )
+          : null
+        }
+        {/* <Link to="/sobre" style={styles.noTextDecoration}>
           <div style={leftSlot}><p>SOBRE</p></div>
-        </Link>
-        <div style={leftSlot}><p>CONTATO</p></div>
-      </div>
-      <div style={rightSide}>
-        <div><p>🇧🇷</p></div>
-        <div><p>🇺🇸</p></div>
+        </Link> */}
       </div>
     </div>
   )
 }
 
-const headerStyles = {
+const styles = {
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
@@ -37,7 +41,6 @@ const headerStyles = {
     height: 80,
     justifyContent: 'space-between',
     alignItems: 'space-between',
-    // flexGrow: 1
   },
   leftSide: {
     display: 'flex',
@@ -62,8 +65,12 @@ const headerStyles = {
     alignItems: 'center',
     color: TEXT_COLOR,
     cursor: 'pointer',
-    margin: 50
+    marginLeft: 10,
+    marginRight: 10,
   },
+  noTextDecoration: {
+    textDecoration: 'none',
+  }
 }
 
 export default Header;

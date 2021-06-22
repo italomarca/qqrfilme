@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 
 
-import moviedbService from '../../services/moviedbService'
+import moviedbService from '../services/moviedbService'
 import Loading from '../components/Loading'
 import Header from '../components/Header'
 import MovieDescription from '../components/MovieDescription'
@@ -20,7 +20,7 @@ const Home = () => {
   }
 
   const backgroundStyle = movie 
-    ? getBackgroundStyleWithImage(movie.imageUri)
+    ? {...styles.wrapper, ...getBackgroundStyleWithImage(movie.imageUri)}
     : styles.wrapper
   
   return (
@@ -39,14 +39,14 @@ const getBackgroundStyleWithImage = imgUrl => ({
   backgroundImage: `url("${imgUrl}")`,
   backgroundSize: 'cover',
   backgroundPosition: 'center center',
-  ...styles.wrapper
+  backgroundAttachment: 'fixed',
 })
 
 const styles = {
   wrapper: {
     display: 'flex',
     flex: 1,
-    height: '100%',
+    minHeight: '100%',
     width: '100%',
     backgroundSize: 'cover',
     backgroundPosition: 'center center'
