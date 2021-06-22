@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`home page renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "backgroundPosition": "center center",
+      "backgroundSize": "cover",
+      "display": "flex",
+      "flex": 1,
+      "minHeight": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "alignItems": "space-between",
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": 80,
+        "justifyContent": "space-between",
+        "left": 0,
+        "position": "fixed",
+        "top": 0,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+        }
+      }
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "color": "#fff",
+        "flex": 1,
+        "fontSize": 144,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <p>
+      Peraê...
+    </p>
+  </div>
+</div>
+`;

@@ -1,4 +1,4 @@
-import moviedbService from '../../services/moviedbService'
+import moviedbService from '../moviedbService'
 
 describe('moviedbService', () => {
   const movieFetchResponse = {
