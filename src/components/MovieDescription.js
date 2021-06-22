@@ -1,93 +1,96 @@
-import React from 'react'
-import Dotdotdot from 'react-dotdotdot';
+import React from 'react';
 
-const TEXT_COLOR = '#fff'
+const SECONDARY_COLOR = '#fff'
+const PRIMARY_COLOR = 'rgba(0,0,0,0.8)'
 
 const MovieDescription = ({movie, updateMovie}) => {
   const {
-    wrapper,
-    left,
-    image,
+    movieDescirptionWrapper,
     title,
     description,
     footerWrapper,
     rateAndYear,
     footerButton
-  } = movieDescriptionStyles;
+  } = styles;
   
   return (
-    <>
-      <div style={wrapper}>
-        <div style={left}>
-          <div style={title}>{movie.name}</div>
-          <div style={description}><Dotdotdot clamp={3}>{movie.description}</Dotdotdot></div>
+    <div style={styles.wrapper}>
+      <div style={movieDescirptionWrapper}>
+        <div style={{marginBottom: 12, marginTop: 64}}>
+          <span style={title}>{movie.name}</span>
         </div>
-        {movie.imageUri && <img style={image} src={movie.imageUri} alt="movie" />}
+        <div>
+          <span style={description}>{movie.description}</span>
+        </div>
+        <div style={{marginTop: 18}}>
+          <span style={rateAndYear}>{`${movie.stars} - ${movie.year}`}</span>
+        </div>
       </div>
       <div style={footerWrapper}>
-        <div style={rateAndYear}>
-          <p>{`${movie.stars} - ${movie.year}`}</p>
-        </div>
         <div style={footerButton} onClick={() => window.open(`https://www.google.com/search?q=assistir ${movie.name}`)}><p>EH ISSO</p></div>
-        <div style={footerButton} onClick={updateMovie}><p>MEH</p></div>
+        <div style={footerButton} onClick={updateMovie}><p>OUTRO</p></div>
       </div>
-    </>
+    </div>
   );
 }
 
-const movieDescriptionStyles = {
+const styles = {
   wrapper: {
     display: 'flex',
+    justifyContent: 'center',
+    width: '100%',
+  },
+  movieDescirptionWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    margin: 20,
-    marginTop: 40
-  },
-  left: {
-    flex: 1,
-    maxWidth: '70%'
-  },
-  image: {
-    maxHeight: 500,
-    maxWidth: 300,
-    marginTop: 100,
-    marginLeft: 30
+    margin: 12,
+    marginBottom: 106,
+    maxWidth: 1200,
   },
   title: {
-    color: TEXT_COLOR,
-    fontSize: 98,
+    color: '#000',
+    backgroundColor: 'rgba(255,255,255,0.9)',
+    fontSize: 58,
   },
   description: {
     marginTop: 20,
-    color: TEXT_COLOR,
-    fontSize: 36
+    fontSize: 28,
+    textAlign: 'center',
+    color: '#000',
+    backgroundColor: 'rgba(255,255,255,0.9)',
   },
   rateAndYear: {
     flex: 1,
-    color: TEXT_COLOR,
-    margin: 10,
+    color: '#000',
+    backgroundColor: 'rgba(255,255,255,0.9)',
+    marginTop: 18,
     height: 40,
     fontSize: 26
   },
   footerWrapper: {
-    position: 'absolute',
-    bottom: 0,
     display: 'flex',
     flex: 1,
-    justifyContent: 'space-between'
+    width: '100%',
+    position: 'fixed',
+    left: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   footerButton: {
-    margin: 10,
     flex: 1,
-    color: '#000',
-    backgroundColor: TEXT_COLOR,
+    margin: 10,
+    color: PRIMARY_COLOR,
+    backgroundColor: SECONDARY_COLOR,
     fontWeight: 600,
     fontSize: 18,
     textAlign: 'center',
     borderRadius: 50,
-    width: 300,
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: 180,
     cursor: 'pointer',
+    maxWidth: 400,
+    minWidth: 150,
   }
 }
 

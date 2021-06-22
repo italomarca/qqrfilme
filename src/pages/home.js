@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 
 import moviedbService from '../services/moviedbService'
@@ -18,17 +18,39 @@ const Home = () => {
     const movie = await moviedbService.getMovie()
     setMovie(movie)
   }
+
+  const backgroundStyle = movie 
+    ? {...styles.wrapper, ...getBackgroundStyleWithImage(movie.imageUri)}
+    : styles.wrapper
   
   return (
-    <>
+    <div style={backgroundStyle}>
       <Header />
       {
         movie
         ? <MovieDescription movie={movie} updateMovie={updateMovie} />
         : <Loading />
       }
-    </>
+    </div>
   )
+}
+
+const getBackgroundStyleWithImage = imgUrl => ({
+  backgroundImage: `url("${imgUrl}")`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center center',
+  backgroundAttachment: 'fixed',
+})
+
+const styles = {
+  wrapper: {
+    display: 'flex',
+    flex: 1,
+    minHeight: '100%',
+    width: '100%',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center'
+  }
 }
 
 export default Home;
