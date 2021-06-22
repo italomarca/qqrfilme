@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import HomeWeb from './web/pages/home'
-import HomeMobile from './mobile/pages/home'
+import IndexWeb from './web/index'
+import IndexMobile from './mobile/index'
 
 import { useMediaQuery } from 'react-responsive'
 
@@ -23,8 +23,8 @@ const App = () => {
   
   isDesktopOrLaptop ? console.log('web') : console.log('mobile')
   return isDesktopOrLaptop 
-    ? <HomeWeb />
-    : <HomeMobile />
+    ? <IndexWeb />
+    : <IndexMobile />
 }
 
 ReactDOM.render(
