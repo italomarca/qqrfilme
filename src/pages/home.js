@@ -1,11 +1,9 @@
-import {useEffect, useState} from 'react';
-
+import React, { useEffect, useState } from 'react'
 
 import moviedbService from '../services/moviedbService'
 import Loading from '../components/Loading'
 import Header from '../components/Header'
 import MovieDescription from '../components/MovieDescription'
-
 
 const Home = () => {
   const [movie, setMovie] = useState()
@@ -15,27 +13,27 @@ const Home = () => {
   }, [])
 
   const updateMovie = async () => {
-    const movie = await moviedbService.getMovie()
-    setMovie(movie)
+    const movieFromRemote = await moviedbService.getMovie()
+    setMovie(movieFromRemote)
   }
 
-  const backgroundStyle = movie 
-    ? {...styles.wrapper, ...getBackgroundStyleWithImage(movie.imageUri)}
+  const backgroundStyle = movie
+    ? { ...styles.wrapper, ...getBackgroundStyleWithImage(movie.imageUri) }
     : styles.wrapper
-  
+
   return (
     <div style={backgroundStyle}>
       <Header />
-      {
-        movie
-        ? <MovieDescription movie={movie} updateMovie={updateMovie} />
-        : <Loading />
-      }
+      {movie ? (
+        <MovieDescription movie={movie} updateMovie={updateMovie} />
+      ) : (
+        <Loading />
+      )}
     </div>
   )
 }
 
-const getBackgroundStyleWithImage = imgUrl => ({
+const getBackgroundStyleWithImage = (imgUrl) => ({
   backgroundImage: `url("${imgUrl}")`,
   backgroundSize: 'cover',
   backgroundPosition: 'center center',
@@ -49,8 +47,8 @@ const styles = {
     minHeight: '100%',
     width: '100%',
     backgroundSize: 'cover',
-    backgroundPosition: 'center center'
-  }
+    backgroundPosition: 'center center',
+  },
 }
 
-export default Home;
+export default Home

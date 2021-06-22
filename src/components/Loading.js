@@ -2,13 +2,11 @@ import React from 'react'
 
 const TEXT_COLOR = '#fff'
 
-const Loading = () => {
-  return (
-    <div style={loadingStyles.wapper}>
-      <p>Peraê...</p>
-    </div>
-  )
-}
+const Loading = () => (
+  <div style={loadingStyles.wapper}>
+    <p>Peraê...</p>
+  </div>
+)
 const loadingStyles = {
   wapper: {
     color: TEXT_COLOR,
@@ -16,7 +14,7 @@ const loadingStyles = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
 }
 
-export default Loading;
+export default Loading

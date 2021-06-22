@@ -1,4 +1,4 @@
-export const isAtHome = location => {
+export const isAtHome = (location) => {
   if (location.pathname === '/') {
     return true
   }

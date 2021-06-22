@@ -1,37 +1,62 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react'
 
 const SECONDARY_COLOR = '#fff'
 const PRIMARY_COLOR = 'rgba(0,0,0,0.8)'
 
-const MovieDescription = ({movie, updateMovie}) => {
+const MovieDescription = ({ movie, updateMovie }) => {
   const {
     movieDescirptionWrapper,
     title,
     description,
     footerWrapper,
     rateAndYear,
-    footerButton
-  } = styles;
-  
+    footerButton,
+  } = styles
+
   return (
     <div style={styles.wrapper}>
       <div style={movieDescirptionWrapper}>
-        <div style={{marginBottom: 12, marginTop: 64}}>
+        <div style={{ marginBottom: 12, marginTop: 64 }}>
           <span style={title}>{movie.name}</span>
         </div>
         <div>
           <span style={description}>{movie.description}</span>
         </div>
-        <div style={{marginTop: 18}}>
+        <div style={{ marginTop: 18 }}>
           <span style={rateAndYear}>{`${movie.stars} - ${movie.year}`}</span>
         </div>
       </div>
       <div style={footerWrapper}>
-        <div style={footerButton} onClick={() => window.open(`https://www.google.com/search?q=assistir ${movie.name}`)}><p>EH ISSO</p></div>
-        <div style={footerButton} onClick={updateMovie}><p>OUTRO</p></div>
+        <div
+          style={footerButton}
+          onClick={() =>
+            window.open(
+              `https://www.google.com/search?q=assistir ${movie.name}`,
+            )
+          }
+          onKeyDown={() => {
+            // not implemented yet :(
+          }}
+          role="button"
+          tabIndex={0}
+        >
+          <p>EH ISSO</p>
+        </div>
+        <div
+          style={footerButton}
+          onClick={updateMovie}
+          onKeyDown={() => {
+            // not implemented yet :(
+          }}
+          role="button"
+          tabIndex={0}
+        >
+          <p>OUTRO</p>
+        </div>
       </div>
     </div>
-  );
+  )
 }
 
 const styles = {
@@ -66,7 +91,7 @@ const styles = {
     backgroundColor: 'rgba(255,255,255,0.9)',
     marginTop: 18,
     height: 40,
-    fontSize: 26
+    fontSize: 26,
   },
   footerWrapper: {
     display: 'flex',
@@ -91,7 +116,7 @@ const styles = {
     cursor: 'pointer',
     maxWidth: 400,
     minWidth: 150,
-  }
+  },
 }
 
-export default MovieDescription;
+export default MovieDescription
